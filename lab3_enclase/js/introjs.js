@@ -29,4 +29,18 @@ const nombre = prompt("¿Como te llamas?");
 const is_hambre = confirm("¿Tienes hambre?");
 
 //funciones tradicionales
+function imprime_status() {
+    let respuesta = ""
+    if (is_hambre){
+        respuesta = " tiene hambre"
+    }
+    console.log(nombre + respuesta);
 
+}
+
+imprime_status();
+
+//funciones modernas
+() => {
+    
+}
