@@ -17,3 +17,10 @@ let otro_wookie = "Tarful"; //forma moderna
 console.log(otro_wookie);
 
 const precio = 99.99;
+
+//alcance de las variables
+for (var i = 0; i < 10; i++){
+    console.log(i);
+}
+
+console.log(i)  
