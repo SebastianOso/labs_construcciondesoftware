@@ -19,8 +19,14 @@ console.log(otro_wookie);
 const precio = 99.99;
 
 //alcance de las variables
-for (var i = 0; i < 10; i++){
+for (let i = 0; i < 10; i++){
     console.log(i);
 }
 
-console.log(i)  
+//alert, prompt, confirm
+alert("fdfdsa");
+const nombre = prompt("¿Como te llamas?");
+const is_hambre = confirm("¿Tienes hambre?");
+
+//funciones tradicionales
+
