@@ -9,3 +9,11 @@ console.assert(1 == "1");
 console.assert(1 === "1");
 console.assert(1 == true);
 console.assert(1 === true);
+
+//variables constantes
+var wookie = "Cheewbaca"; //forma antigua,  no es tan segura
+let otro_wookie = "Tarful"; //forma moderna
+
+console.log(otro_wookie);
+
+const precio = 99.99;
