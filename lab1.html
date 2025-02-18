@@ -3,36 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="mycss.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <title>Oso</title>
 </head>
 <body>
     
     <header>
-        <h1>Hola me llamo Sebastian Osorio Arteaga <br> A01706119</h1>
-        les voy a contar 15 cosas sobre mi y responder algunas preguntas
+        <h1 class="card-panel center teal lighten-2">Hola me llamo Sebastian Osorio Arteaga <br> A01706119</h1>
+        <nav>
+            <div class="nav-wrapper">
+              <a href="#" class="brand-logo">Logo</a>
+              <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="#lab1">lab 1</a></li>
+                <li><a href="#lab3">lab 3</a></li>
+                <li><a href="#lab5">lab 5</a></li>
+                <li><a href="#bibliografia">Bibliografia</a></li>
+              </ul>
+            </div>
+          </nav>
+        <p class="center">les voy a contar 15 cosas sobre mi y responder algunas preguntas</p>
     </header>
+    
     <div class="container">
-        <h2>15 cosas sobre mi:</h2>
-        <ol>
-            <li>Me gusta el volleyball</li>
-            <li>Me gustan los videojeugos</li>
-            <li>Mi videojuego favorito es Metal Gear Solid 5</li>
-            <li>Mi pelicula favorita es Fantastic Mr.Fox</li>
-            <li>Nunca me ha dado varicela</li>
-            <li>No me gusta el sushi</li>
-            <li>Mi comida favorita es el pan frances</li>
-            <li>La unica mascota que he tenido ha sido una tortuga</li>
-            <li>No me he roto un hueso</li>
-            <li>Mi artista favorito es Frank Ocean</li>
-            <li>Me gusta leer, especialmente ciencia ficcion</li>
-            <li>Di clases de volleyball(como servicio social)</li>
-            <li>Me gusta hacer ejercicio</li>
-            <li>Soy una persona muy puntual y organizada</li>
-            <li>Soy una persona que disfruta de la calma y la tranquilidad.</li>
-        </ol>
+        <ul class="collapsible">
+            <li>
+                <div class="collapsible-header"><h2>15 cosas sobre mi</h2></div>
+            <div class="collapsible-body">
+                <ul>
+                    <li class="collection-item">Me gusta el volleyball</li>
+                    <li class="collection-item">Me gustan los videojeugos</li>
+                    <li class="collection-item">Mi videojuego favorito es Metal Gear Solid 5</li>
+                    <li class="collection-item">Mi pelicula favorita es Fantastic Mr.Fox</li>
+                    <li class="collection-item">Nunca me ha dado varicela</li>
+                    <li class="collection-item">No me gusta el sushi</li>
+                    <li class="collection-item">Mi comida favorita es el pan frances</li>
+                    <li class="collection-item">La unica mascota que he tenido ha sido una tortuga</li>
+                    <li class="collection-item">No me he roto un hueso</li>
+                    <li class="collection-item">Mi artista favorito es Frank Ocean</li>
+                    <li class="collection-item">Me gusta leer, especialmente ciencia ficcion</li>
+                    <li class="collection-item">Di clases de volleyball(como servicio social)</li>
+                    <li class="collection-item">Me gusta hacer ejercicio</li>
+                    <li class="collection-item">Soy una persona muy puntual y organizada</li>
+                    <li class="collection-item">Soy una persona que disfruta de la calma y la tranquilidad.</li>
+                </ul>
+            </div>
 
-        <h2>Preguntas del lab 1</h2>
+            </li>
+            
+            
+        </ul>
+
+        <h2 id="lab1">Preguntas del lab 1</h2>
         <p class="pregunta"><b>¿Cuál es la diferencia entre Internet y la World Wide Web?</b></p>
         <p>Internet es una red de computadoras conectadas entre sí <br> y la World Wide Web hace uso del internet para mostrar un sistema conectado de paginas</p>
 
@@ -98,6 +119,8 @@
                 <li>Uso y mantenimiento</li>
             </ul>
 
+            <h2 id="lab3">Preguntas del lab3</h2>
+
             <p class="pregunta"><b>Como ingeniero de software ¿cuál es tu recomendación sobre el uso de !important en un CSS?</b></p>
             <p>Creo que lo mejor sería evitarlo su uso lo más que se pueda, aunque son muy pocos los casos en los que se va a tener que usar !important para resolver el conflicto del estilo</p>
 
@@ -110,6 +133,10 @@
             <p class="pregunta"><b>¿Por qué el uso de una versión minimizada del CSS mejora el rendimiento del sitio?</b></p>
             <p>Porque reduce el tamaño del archivo, por lo que consume menos recursos entonces el tiempo de procesamiento es más rápido, asi dandole una mejor experiencia al usuario</p>
 
+            <h2 id="lab5">Preguntas lab 5</h2>
+            <p><strong>Describe Material design</strong></p>
+            <p>Es un sistema creado por google que ayuda a crear experiencias digitales de alta calidad atraves del diseño, basandose en la palabra material, refiriendose a la definición de la palabra en sí, como también en sus texturas, luces y sombras. Llegando a reimaginar el tradicional tinta y papel</p>
+
             <div id="bibliografia">
                 <h2 id="titlebiblio">Bibliografia</h2>
                 <ul>
@@ -119,6 +146,8 @@
                     <li>HTML5 vs. HTML4: ¿Cuál es la diferencia? (s.f.). desarrolladoraweb.com. <a href="https://desarrolladoraweb.com/blog/html5-vs-html4-cual-es-la-diferencia">https://desarrolladoraweb.com/blog/html5-vs-html4-cual-es-la-diferencia</a></li>
                     <li>Conceptos básicos de las tablas HTML - Aprende desarrollo web | MDN. (s.f.). MDN Web Docs. <a href="https://developer.mozilla.org/es/docs/Learn_web_development/Core/Structuring_content/HTML_table_basics">https://developer.mozilla.org/es/docs/Learn_web_development/Core/Structuring_content/HTML_table_basics</a></li>
                     <li>Guerrero, A. C. (2015, 20 julio). Ciclo de vida de un sistema de información • gestiopolis. Gestiopolis. <a href="https://www.gestiopolis.com/ciclo-de-vida-de-un-sistema-de-informacion/">https://www.gestiopolis.com/ciclo-de-vida-de-un-sistema-de-informacion/</a></li>
+                    <li>Material Design - Version 2. (s. f.). Material Design. <a href="https://m2.material.io/design/introduction#principles">https://m2.material.io/design/introduction#principles</a></li>
+                    
                 </ul>
             </div>
             
@@ -126,8 +155,10 @@
             
 
 
-        <footer>se uso el IDE VisualStudioCode <a href="https://code.visualstudio.com/">https://code.visualstudio.com/</a></footer>
+        <footer class="page-footer">se uso el IDE VisualStudioCode <a href="https://code.visualstudio.com/">https://code.visualstudio.com/</a></footer>
     </div>
-    
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
