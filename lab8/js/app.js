@@ -11,3 +11,9 @@ const promedio = (arreglo) => {
 
 console.log(promedio(array));
 
+const crearArchTexto = (mensaje) => {
+    const file_system = require('fs'); 
+    file_system.writeFileSync('hola.txt', mensaje)
+}
+
+crearArchTexto('hola como estas')
