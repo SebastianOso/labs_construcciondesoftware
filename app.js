@@ -82,7 +82,7 @@ const html_header = `
 
 const html_content_form = `<div class="columns">
             <div class="column">
-              <form action="/" method="POST">
+              <form action="/personajes/agregar" method="POST">
                 <label for="nombre" class="label">Nombre del personaje</label>
                 <input
                   class="input is-primary"
@@ -154,7 +154,15 @@ app.use('/chewy', (request, response, next) => {
     response.send("hola desde la ruta /chewy")
 })
 
-app.use('/personajes/agregar', (request, response, next) => {
+//Cuando se registra un middleware con app.get(), 
+// el middleware sólo se registra para el metodo http GET 
+app.get('/personajes/agregar', (request, response, next) => {
+    response.send(html_header + html_content_form + html_footer)
+})
+
+//Cuando se registra un middleware con app.get(), 
+// el middleware sólo se registra para el metodo http POST
+app.post('/personajes/agregar', (request, response, next) => {
     response.send(html_header + html_content_form + html_footer)
 })
 
