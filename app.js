@@ -128,8 +128,13 @@ let html_card_footer = `
 </div>
 `;
 
+const personajes = []
+
 const express = require('express'); //para usar express, se necesita un requiere, se guarda en una constante
 const app = express();// se inicializa la estancia de express y se inicia el servidor
+
+const bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({extended: false}));//para que todas mis rutas se use body parser
 
 //Middleware
 //si queremos agregar algo a la aplicacion se agrega un middleware
@@ -163,6 +168,9 @@ app.get('/personajes/agregar', (request, response, next) => {
 //Cuando se registra un middleware con app.get(), 
 // el middleware sólo se registra para el metodo http POST
 app.post('/personajes/agregar', (request, response, next) => {
+    console.log(request.body)
+    personajes.push(request.body.nombre);
+    console.log(personajes)
     response.send(html_header + html_content_form + html_footer)
 })
 
