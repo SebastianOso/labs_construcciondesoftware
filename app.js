@@ -171,6 +171,13 @@ app.post('/personajes/agregar', (request, response, next) => {
     console.log(request.body)
     personajes.push(request.body.nombre);
     console.log(personajes)
+    let html = html_header
+    for (let personaje of personajes){
+        html += html_card_header;
+        html += personaje;
+        html += html_card_footer;
+    }
+    html+=html_footer
     response.send(html_header + html_content_form + html_footer)
 })
 
