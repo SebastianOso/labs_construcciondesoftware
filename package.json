@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/SebastianOso/labs_construcciondesoftware/issues"
   },
-  "homepage": "https://github.com/SebastianOso/labs_construcciondesoftware#readme"
+  "homepage": "https://github.com/SebastianOso/labs_construcciondesoftware#readme",
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
 }
