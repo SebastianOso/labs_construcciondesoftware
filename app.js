@@ -1,6 +1,8 @@
 const express = require('express'); //para usar express, se necesita un requiere, se guarda en una constante
 const app = express();// se inicializa la estancia de express y se inicia el servidor
 
+app.use(express.static(path.join(__dirname, 'public')));
+
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended: false}));//para que todas mis rutas se use body parser
 
