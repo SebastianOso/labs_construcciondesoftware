@@ -1,0 +1,30 @@
+{
+  "name": "labs_construcciondesoftware",
+  "version": "1.0.0",
+  "description": "laboratorios TC2005B",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SebastianOso/labs_construcciondesoftware.git"
+  },
+  "keywords": [
+    "TC2005B"
+  ],
+  "author": "Sebastian Osorio",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SebastianOso/labs_construcciondesoftware/issues"
+  },
+  "homepage": "https://github.com/SebastianOso/labs_construcciondesoftware#readme",
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "express": "^4.21.2"
+  }
+}
