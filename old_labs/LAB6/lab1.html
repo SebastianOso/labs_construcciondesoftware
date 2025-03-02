@@ -1,38 +1,3 @@
-const array = [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000];
-
-const promedio = (arreglo) => {
-    let acum = 0
-    for (elemento of arreglo) {
-        acum += elemento;
-    }
-
-    return acum / arreglo.length;
-}
-
-console.log(promedio(array));
-
-const crearArchTexto = (mensaje) => {
-    const file_system = require('fs'); 
-    file_system.writeFileSync('hola.txt', mensaje)
-}
-
-const fizzbuzz = (n) => {
-    for (i=0; i <= n;i++) {
-        if (i % 15 === 0){
-            console.log("FizzBuzz")
-        } else if (i % 3 === 0 ){
-            console.log("Fizz")
-        } else if (i % 5 === 0){
-            console.log("Buzz")
-        }
-    }
-}
-
-fizzbuzz(100);
-
-crearArchTexto('hola como estas')
-
-const html = `
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -56,13 +21,13 @@ const html = `
               </ul>
             </div>
           </nav>
-        <p class="center">les voy a contar 15 cosas sobre mi y responder algunas preguntas</p>
+        <p class="center" id="les" onmouseover="stilo(this)">les voy a contar 15 cosas sobre mi y responder algunas preguntas</p>
     </header>
     
     <div class="container">
         <ul class="collapsible">
             <li>
-                <div class="collapsible-header"><h2>15 cosas sobre mi</h2></div>
+                <div class="collapsible-header" id="15-cosas" onmouseover="mOver(this)" onmouseout="mOut(this)"><h2>15 cosas sobre mi</h2></div>
             <div class="collapsible-body">
                 <ul>
                     <li class="collection-item">Me gusta el volleyball</li>
@@ -197,16 +162,3 @@ const html = `
     <script src="js/script.js"></script>
 </body>
 </html>
-
-`;
-
-const http = require('http');
-
-const server = http.createServer( (request, response) => {    
-    console.log(request.url);
-    response.setHeader('Content-Type', 'text/html');
-    response.write(html);
-    response.end();
-});
-
-server.listen(3000);
