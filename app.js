@@ -34,16 +34,14 @@ app.use('/chewy', (request, response, next) => {
 })
 
 const rutasPersonajes = require('./routes/personajes.routes');
+const rutasPeliculas = require('./routes/peliculas.routes');
 
 app.use('/personajes', rutasPersonajes);
-
+app.use('/peliculas', rutasPeliculas);
 
 //es un composite
 app.use((request, response, next) => {
-    console.log('Otro middleware!');
-    
-     //Manda la respuesta
-    response.send('¡Hola mundo!');
+    response.status(404).send('Página no encontrada');
 });
 
 app.listen(3000);
