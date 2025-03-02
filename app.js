@@ -29,9 +29,6 @@ app.use((request, response, next) => { //next es una funcion de express que lo m
 //nos vamos de lo especifico a lo general en express
 //Este middleware se registra solo en la ruta /chewy
 //este middleware se registra para /chewy, agrega todo lo demas que lleva chewy
-app.use('/chewy', (request, response, next) => {
-    response.send("hola desde la ruta /chewy")
-})
 
 const rutasPersonajes = require('./routes/personajes.routes');
 const rutasPeliculas = require('./routes/peliculas.routes');

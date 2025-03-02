@@ -5,9 +5,15 @@ const router = express.Router();
 const path = require('path');
 
 router.get('/mostrar', (request, response, next) => {
-  response.sendFile(path.join(__dirname, '..', 'views', 'lab1.html'));
+  response.render('mostrar_peliculas')
 })
 
+router.get('/director', (request, response, next) => {
+    response.render('mostrar_director')
+})
 
+router.get('/preguntas', (request, response, next) => {
+    response.render('mostrar_pregunta')
+})
 
 module.exports = router;

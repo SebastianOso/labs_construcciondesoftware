@@ -17,6 +17,10 @@ let html_card_footer = `
 
 const personajes = [];
 
+router.get('/chewy', (request, response, next) => {
+  response.sendFile(path.join(__dirname, '..', 'views', 'chewy.html'));
+})
+
 //Cuando se registra un middleware con app.get(), 
 //el middleware sólo se registra para el método HTTP GET
 router.get('/agregar', (request, response, next) => {
