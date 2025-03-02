@@ -1,0 +1,13 @@
+<%- include('includes/_header.ejs') %>
+
+<% for (let personaje of personajes) { %>
+    <div class="card">
+        <div class="card-content">
+            <p class="title">
+                <%= personaje %>
+            </p>
+        </div>
+    </div>
+<% } %>
+
+<%- include('includes/_footer.ejs') %>
