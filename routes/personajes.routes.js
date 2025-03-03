@@ -4,7 +4,7 @@ const router = express.Router();
 
 const personajes_controller = require('../controllers/personajes.controller')
 
-const personajes = [];
+const path = require('path');
 
 router.get('/chewy', (request, response, next) => {
   response.sendFile(path.join(__dirname, '..', 'views', 'chewy.html'));
@@ -12,20 +12,12 @@ router.get('/chewy', (request, response, next) => {
 
 //Cuando se registra un middleware con app.get(), 
 //el middleware sólo se registra para el método HTTP GET
-router.get('/agregar', personajes_controller.get_agregar );
+router.get('/agregar', personajes_controller.get_agregar);
+router.get('/add', personajes_controller.get_agregar);
 
 //Cuando se registra un middleware con app.post(), 
 //el middleware sólo se registra para el método HTTP POST
-router.post('/agregar', (request, response, next) => {
-  console.log(request.body);
-  personajes.push(request.body.nombre);
-  console.log(personajes);
-  response.render('lista_personajes', {
-    personajes: personajes,
-  });
-});
-
-const path = require('path');
+router.post('/agregar', personajes_controller.post_agregar);
 
 router.get('/mostrar', (request, response, next) => {
   response.sendFile(path.join(__dirname, '..', 'views', 'lab1.html'));
