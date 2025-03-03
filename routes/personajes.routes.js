@@ -8,7 +8,7 @@ const path = require('path');
 
 router.get('/chewy', (request, response, next) => {
   response.sendFile(path.join(__dirname, '..', 'views', 'chewy.html'));
-})
+}) //cambiarlo despues, pero lo mismo que la de mostrar
 
 //Cuando se registra un middleware con app.get(), 
 //el middleware sólo se registra para el método HTTP GET
@@ -19,8 +19,6 @@ router.get('/add', personajes_controller.get_agregar);
 //el middleware sólo se registra para el método HTTP POST
 router.post('/agregar', personajes_controller.post_agregar);
 
-router.get('/mostrar', (request, response, next) => {
-  response.sendFile(path.join(__dirname, '..', 'views', 'lab1.html'));
-})
+router.get('/mostrar', personajes_controller.get_mostrar)
 
 module.exports = router;
