@@ -2,18 +2,7 @@ const express = require('express');
 
 const router = express.Router();
 
-const html_header = ``;
-
-const html_content_form = ``;
-
-const html_footer = ``;
-
-let html_card_header = `
-`;
-
-let html_card_footer = `
-
-`;
+const personajes_controller = require('../controllers/personajes.controller')
 
 const personajes = [];
 
@@ -23,9 +12,7 @@ router.get('/chewy', (request, response, next) => {
 
 //Cuando se registra un middleware con app.get(), 
 //el middleware sólo se registra para el método HTTP GET
-router.get('/agregar', (request, response, next) => {
-  response.render('agregar_personaje')
-});
+router.get('/agregar', personajes_controller.get_agregar );
 
 //Cuando se registra un middleware con app.post(), 
 //el middleware sólo se registra para el método HTTP POST
