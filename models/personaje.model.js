@@ -9,7 +9,7 @@ module.exports = class Personaje {
 
     //Este método servirá para guardar de manera persistente el nuevo objeto. 
     save() {
-        personajes.push(this,nombre);
+        personajes.push(this);
     }
 
     //Este método servirá para devolver los objetos del almacenamiento persistente.
