@@ -3,7 +3,7 @@ const personajes = [];
 module.exports = class Personaje {
 
     //Constructor de la clase. Sirve para crear un nuevo objeto, y en él se definen las propiedades del modelo
-    constructor(my_value) {
+    constructor(mi_nombre) {
         this.nombre = mi_nombre;
     }
 

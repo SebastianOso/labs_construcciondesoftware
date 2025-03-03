@@ -1,5 +1,7 @@
 <%- include('includes/_header.ejs') %>
 
+<a class="button is-primary" href="/personajes/agregar">agregar personaje</a>
+
 <% for (let personaje of personajes) { %>
     <div class="card">
         <div class="card-content">
@@ -9,5 +11,7 @@
         </div>
     </div>
 <% } %>
+
+<a class="button is-primary" href="/personajes/agregar">agregar personaje</a>
 
 <%- include('includes/_footer.ejs') %>
