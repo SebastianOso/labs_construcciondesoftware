@@ -4,7 +4,7 @@ const router = express.Router();
 
 const personajes_controller = require('../controllers/personajes.controller')
 
-const path = require('path');
+
 
 router.get('/chewy', (request, response, next) => {
   response.sendFile(path.join(__dirname, '..', 'views', 'chewy.html'));
