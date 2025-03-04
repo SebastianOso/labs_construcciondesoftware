@@ -39,10 +39,13 @@ app.use((request, response, next) => { //next es una funcion de express que lo m
 //este middleware se registra para /chewy, agrega todo lo demas que lleva chewy
 
 const rutasPersonajes = require('./routes/personajes.routes');
-const rutasPeliculas = require('./routes/peliculas.routes');
-
 app.use('/personajes', rutasPersonajes);
+
+const rutasPeliculas = require('./routes/peliculas.routes');
 app.use('/peliculas', rutasPeliculas);
+
+const rutasUsuarios = require('./routes/users.routes');
+app.use('/users', rutasUsuarios);
 
 //es un composite
 app.use((request, response, next) => {
