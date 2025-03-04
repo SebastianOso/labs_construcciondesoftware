@@ -5,6 +5,7 @@ const path = require('path');
 const Personaje= require('../models/personaje.model')
 
 exports.get_agregar = (request, response, next) => {
+    console.log(request.session)
     response.render('agregar_personaje')
 }
 
