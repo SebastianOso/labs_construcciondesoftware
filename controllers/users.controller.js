@@ -13,7 +13,8 @@ exports.post_login = (request, response, next) => {
 
 
 exports.get_logout = (request, response, next) => {
-    request.session.destroy( () =>{
-        response.redirect('users/login')
-    })
+    request.session.destroy(() => {
+        //Este código se ejecuta cuando la sesión se elimina.
+        response.redirect('/users/login'); 
+    });
 }

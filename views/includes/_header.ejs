@@ -30,11 +30,13 @@
             <a class="navbar-item">
               Home
             </a>
-      
+            <% if (isLoggedIn) { %>
             <a href="/personajes" class="navbar-item">
               Personajes
             </a>
+            <% } else { %>
 
+              <% } %>
             <a class="navbar-item">
               Documentation
             </a>
