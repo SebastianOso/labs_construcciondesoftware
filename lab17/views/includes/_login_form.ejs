@@ -1,6 +1,6 @@
 <div class="columns">
     <div class="column">
-      <form action="/users/login" method="POST">
+      <form action="<% if (isNew) { %>/users/signup<% } else { %>/users/login<% } %>" method="POST">  
         <label for="username" class="label">Usuario</label>
         <input
           class="input is-primary"
