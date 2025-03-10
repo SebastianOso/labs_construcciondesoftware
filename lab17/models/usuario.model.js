@@ -23,11 +23,18 @@ module.exports = class Usuario {
         return db.execute('SELECT * FROM usuarios');
     }
     static fetchOne(id) {
-        return db.execute('SELECT * FROM usuarios WHERE id=?', [id]);
+        return db.execute('SELECT username FROM usuarios WHERE username=?', [id]);
     }
     static fetch(id) {
         if (id) {
             return this.fetchOne(id);
+        } else {
+            return this.fetchAll();
+        }
+    }
+    static fetch(username) {
+        if (username) {
+            return this.fetchOne(username);
         } else {
             return this.fetchAll();
         }

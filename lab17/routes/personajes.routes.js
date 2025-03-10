@@ -2,6 +2,8 @@ const express = require('express');
 
 const router = express.Router();
 
+const isAuth = require('../util/is-auth')
+
 const personajes_controller = require('../controllers/personajes.controller')
 
 
@@ -12,7 +14,7 @@ router.get('/chewy', (request, response, next) => {
 
 //Cuando se registra un middleware con app.get(), 
 //el middleware sólo se registra para el método HTTP GET
-router.get('/agregar', personajes_controller.get_agregar);
+router.get('/agregar',isAuth, personajes_controller.get_agregar);
 router.get('/add', personajes_controller.get_agregar);
 
 //Cuando se registra un middleware con app.post(), 

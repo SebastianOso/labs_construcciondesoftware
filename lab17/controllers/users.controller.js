@@ -1,3 +1,6 @@
+const Usuario = require("../models/usuario.model");
+const bcrypt = require('bcryptjs');
+
 exports.get_signup = (request, response, next) => {
     response.render('login.ejs', {
         isLoggedIn: request.session.isLoggedIn || false,
@@ -26,9 +29,29 @@ exports.get_login = (request, response, next) => {
 }
 
 exports.post_login = (request, response, next) => {
-    request.session.username = request.body.username
-    request.session.isLoggedIn = true;
-    response.redirect('/personajes');
+    Usuario.fetchOne(request.body.username).then(([rows, fieldData])=>{
+        if (rows.length > 0) {
+            bcrypt.compare(request.body.password, rows[0].passwor)
+            .then((doMatch)=>{
+                if (doMatch) {
+                    request.session.username = request.body.username
+                    request.session.isLoggedIn = true;
+                    return request.session.save(err => {//se salva la sesion antes del redirect
+                        response.redirect('/personajes');
+                    });
+                } else {
+                    response.redirect('/users/login')
+                }
+            }).catch((error)=>{
+                console.log(error)
+            })
+        } else  {
+            response.redirect('/users/login')
+        }
+    }).catch((error)=>{
+        console.log(error)
+    })
+    
 };
 
 

@@ -15,6 +15,11 @@ app.use(session({
     saveUninitialized: false, //Asegura que no se guarde una sesión para una petición que no lo necesita
 }));
 
+//que est edespues de iniciar la sesion
+const csrf = require('csurf');//invocas su constructor
+const csrfProtection = csrf();
+app.use(csrfProtection); 
+
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended: false}));//para que todas mis rutas se use body parser
 
