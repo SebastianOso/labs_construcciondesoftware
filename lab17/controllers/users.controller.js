@@ -5,7 +5,8 @@ exports.get_signup = (request, response, next) => {
     response.render('login.ejs', {
         isLoggedIn: request.session.isLoggedIn || false,
         username: request.session.username || '',
-        isNew: true
+        isNew: true,
+        csrfToken: request.csrfToken()
     })
 }
 
@@ -24,7 +25,8 @@ exports.get_login = (request, response, next) => {
     response.render('login.ejs', {
         isLoggedIn: request.session.isLoggedIn || false,
         username: request.session.username || '',
-        isNew: false
+        isNew: false,
+        csrfToken: request.csrfToken()
     })
 }
 
