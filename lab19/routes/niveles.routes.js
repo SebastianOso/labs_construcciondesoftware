@@ -2,7 +2,8 @@ const express = require('express');
 
 const router = express.Router();
 
-const personajes_controller = require('../controllers/personajes.controller')
+const niveles_controller = require('../controllers/niveles.controller')
+const canCreateNivel = require('../util/canCreateNivel');
 
 
 
@@ -12,16 +13,12 @@ router.get('/chewy', (request, response, next) => {
 
 //Cuando se registra un middleware con app.get(), 
 //el middleware sólo se registra para el método HTTP GET
-router.get('/agregar', personajes_controller.get_agregar);
-router.get('/add', personajes_controller.get_agregar);
+router.get('/agregar', canCreateNivel, niveles_controller.get_agregar);
+
+router.get('/mostrar', niveles_controller.get_niveles);
 
 //Cuando se registra un middleware con app.post(), 
 //el middleware sólo se registra para el método HTTP POST
-router.post('/agregar', personajes_controller.post_agregar);
-
-router.get('/mostrar', personajes_controller.get_mostrar)
-
-router.get('/:id', personajes_controller.get_lista)//ruta dinamica
-router.get('/', personajes_controller.get_lista)
+router.post('/agregar', niveles_controller.post_agregar);
 
 module.exports = router;

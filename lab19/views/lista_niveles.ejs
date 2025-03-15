@@ -6,22 +6,20 @@
     </div>
 <% } %>
 
-<a class="button is-primary" href="/personajes/agregar">agregar personaje</a>
-
-<% for (let personaje of personajes) { %>
+<div class="columns">
+<% for (let nivel of niveles) { %>
     <div class="column">
         <div class="card">
             <div class="card-content">
                 <p class="title">
-                    <a href="/personajed/<%= personaje.id"></a>
+                    <a><%= nivel.nombre %></a>
                 </p>
-                <%= personaje.created_at %>
             </div>
         </div>
     </div>
-    
 <% } %>
+</div>
 
-<a class="button is-primary" href="/personajes/agregar">agregar personaje</a>
+<br><br>
 
 <%- include('includes/_footer.ejs') %>

@@ -1,6 +1,4 @@
-const db = require('../util/database')
-
-const personajes = [];
+const db = require('../util/database');
 
 module.exports = class Personaje {
 
@@ -11,9 +9,7 @@ module.exports = class Personaje {
 
     //Este método servirá para guardar de manera persistente el nuevo objeto. 
     save() {
-        //ejecuta la promesa, le manda al servidor de la base de datos 
-        // hace la consulta inserta el nombre, pero como es codigo asincrono una manera de manejarlas se manejan con then() y catch
-        return db.execute('INSERT INTO personajes(nombre) VALUES(?)', [this.nombre]);
+        return db.execute('INSERT INTO personajes(nombre) VALUES (?)', [this.nombre]);
     }
 
     //Este método servirá para devolver los objetos del almacenamiento persistente.
@@ -21,15 +17,15 @@ module.exports = class Personaje {
         return db.execute('SELECT * FROM personajes');
     }
 
-    static fetchOne(id){
+    static fetchOne(id) {
         return db.execute('SELECT * FROM personajes WHERE id=?', [id]);
     }
 
-    static fetch(id){
+    static fetch(id) {
         if (id) {
-            return fetchOne(id);
+            return this.fetchOne(id);
         } else {
-            return fetchAll();
+            return this.fetchAll();
         }
     }
 
