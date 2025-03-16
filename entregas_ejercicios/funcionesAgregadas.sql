@@ -1,80 +1,36 @@
--- 1.- Actrices de “Las brujas de Salem”.
-SELECT A.nombre
-FROM Actor A, Elenco E
-WHERE A.Nombre = E.Nombre
-AND A.Sexo = 'F' AND E.Titulo = 'Las brujas de Salem'
-
-SELECT Nombre
-FROM Actor
-WHERE Sexo = 'F'
-AND Nombre in 	(
-		SELECT Nombre
-		FROM Elenco
-		WHERE Titulo = 'Las Brujas de Salem'
-		)
--- 2.- Nombres de los actores que aparecen en películas producidas por MGM en 1995.
-SELECT E.Nombre
-FROM Elenco E, Pelicula P
-WHERE E.titulo = P.titulo AND P.año = E.año
-AND P.año = 1995 AND P.nomestudio = 'MGM';
-
-
-SELECT Nombre
+-- El ingreso total recibido por cada actor, sin importar en cuantas películas haya participado.
+SELECT Nombre, SUM(Sueldo)
 FROM Elenco
-WHERE Nombre IN (
-		SELECT titulo
-		FROM Pelicula
-		WHERE nomestudio='MGM' AND año=1995
-		)
 
--- 3.- Películas que duran más que “Lo que el viento se llevó” (de 1939).
-SELECT titulo
+-- El monto total destinado a películas por cada Estudio Cinematográfico, durante la década de los 80's.	
+SELECT nomStudio, SUM(presupuesto) AS 'monto total'
 FROM Pelicula
-WHERE duración 
+WHERE año BETWEEN 1980 and 1990
+GROUP BY nomStudio
+ORDER BY SUM(presupuesto) DESC;
 
 
-SELECT titulo
+-- Nombre y sueldo promedio de los actores (sólo hombres) que reciben en promedio un pago superior a 5 millones de dolares por película.
+SELECT E.nombre, AVG(E.sueldo) as 'Sueldo promedio'
+FROM Elenco E, Actor A
+WHERE E.nombre = A.nombre AND A.sexo = 'H'
+GROUP BY E.nombre
+HAVING AVG(E.sueldo) > 5000000
+ORDER BY AVG(E.sueldo) DESC
+
+
+
+-- Título y año de producción de las películas con menor presupuesto. (Por ejemplo, la película de Titanic se ha producido en varias veces entre la lista de películas estaría la producción de Titanic y el año que fue filmada con menor presupuesto).
+
+SELECT titulo, año, MIN(presupuesto) as 'Presupuesto minimo'
 FROM Pelicula
-WHERE duración > (
-		  SELECT titulo
-		  FROM Pelicula
-	 	  WHERE titulo='Lo que el viento se llevo' AND año = 1939
-	 	 )
--- 4.- Productores que han hecho más películas que George Lucas.
-
-SELECT Pr.nombre, COUNT(Pe.titulo)
-FROM Productor Pr, Pelicula Pe
-WHERE Pr.idproductor = Pe.idproductor
-GROUP BY P.nombre
-HAVING COUNT() >  (
-		  SELECT Pr.nombre COUNT() 
-		  FROM Productor Pr, Pelicula Pe
-		  WHERE Pr.idproductor = Pe.idproductor 
-		  AND P.nombre = 'George Lucas'
-		  )
-ORDER BY COUNT(Pe.titulo) DESC
-
--- 5.- Nombres de los productores de las películas en las que ha aparecido Sharon Stone.
-SELECT Pr.Nombre
-FROM Productores pr, Peliculas Pe, Elenco E
-WHERE Pr.idproductor = Pe.idproductor 
-AND Pe.titulo = E.titulo
-AND Pe.año = E.año
-AND E.nombre = 'Sharon Stone';
+GROUP BY titulo 
 
 
-SELECT Pr.nombre
-FROM Productor Pr, Pelicula Pe
-WHERE PR.idproductor = P.idproductor
-AND p.titulo IN (
-		SELECT Pe.titulo
-		FROM Elenco E
-		WHERE E.nombre = 'Sheron Stone'
-		)
-
--- 6.- Título de las películas que han sido filmadas más de una vez
-SELECT Titulo, COUNT(*) AS 'Numero de peliculas'
-FROM Pelicula
-GROUP BY Titulo
-HAVING COUNT(*)>1
-ORDER BY DESC;
+-- Mostrar el sueldo de la actriz mejor pagada.
+SELECT E.nombre, MAX(E.sueldo) as 'Sueldo máximo promedio'
+FROM Elenco E, Actor A
+WHERE E.nombre = A.nombre AND A.sexo = 'F'
+GROUP BY E.nombre
+ORDER BY MAX(E.sueldo) DESC
+LIMIT 1;
