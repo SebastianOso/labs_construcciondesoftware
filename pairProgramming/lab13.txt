@@ -1,0 +1,4 @@
+lab 13 hecho en pair programming con Omar Emilio Casillas Alday A01712114
+
+link de commits:
+https://github.com/Elmay05/Construccion-de-software/commit/d52808a2a250ff10b85dc993f1ca6c7555df05fe
