@@ -1,0 +1,4 @@
+lab 16 y 17 hecho en pair programming con Omar Emilio Casillas Alday A01712114
+
+link de commits:
+https://github.com/Elmay05/Construccion-de-software/commit/da9313ac70e5fb9b53a9a0e881b717a70d8d7aea
