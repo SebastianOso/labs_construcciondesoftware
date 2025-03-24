@@ -1,6 +1,6 @@
 <div class="columns">
   <div class="column">
-    <form action="/personajes/agregar" method="POST">
+    <form action="/personajes/agregar" method="POST" enctype="multipart/form-data">
       <input type="hidden" name="_csrf" value="<%= csrfToken %>" >
       <label for="nombre" class="label">Nombre del personaje</label>
       <input
@@ -12,6 +12,14 @@
         required
       />
       <br><br>
+      <label for="archivo" class="label">Imagen</label>
+        <input 
+          type="file" 
+          id="archivo" 
+          name="archivo" 
+          accept=".png, .jpg, .jpeg, .gif"
+          class="input is-primary">
+        <br><br>
       <input type="submit" id="boton_personaje" class="button is-primary" value="Guardar personaje">
     </form>
   </div>

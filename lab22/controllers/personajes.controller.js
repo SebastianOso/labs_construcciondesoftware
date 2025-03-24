@@ -1,17 +1,25 @@
 const Personaje = require('../models/personaje.model');
+const Fuerza = require('../models/fuerza.model');
 
 exports.get_agregar = (request, response, next) => {
-    console.log(request.session);
-    response.render('agregar_personaje', {
-        isLoggedIn: request.session.isLoggedIn || false,
-        username: request.session.username || '',
-        csrfToken: request.csrfToken(),
+    Fuerza.fetchAll().then(([rows, fieldData]) => {
+        response.render('agregar_personaje', {
+            isLoggedIn: request.session.isLoggedIn || false,
+            username: request.session.username || '',
+            csrfToken: request.csrfToken(),
+            niveles: rows,
+        });
+    }).catch((error) => {
+        console.log(error);
     });
 };
 
 exports.post_agregar = (request, response, next) => {
     console.log(request.body);
-    const personaje = new Personaje(request.body.nombre);
+    console.log(request.file);
+    const personaje = new Personaje(
+        request.body.nombre, request.body.niveles, request.file.filename
+        );
     personaje.save()
         .then(() => {
             request.session.info = `Personaje ${personaje.nombre} guardado.`;

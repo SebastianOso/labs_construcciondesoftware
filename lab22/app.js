@@ -18,6 +18,28 @@ app.use(session({
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended: false}));
 
+const multer = require('multer');
+
+//fileStorage: Es nuestra constante de configuración para manejar el almacenamiento
+const fileStorage = multer.diskStorage({
+    destination: (request, file, callback) => {
+        //'uploads': Es el directorio del servidor donde se subirán los archivos 
+        callback(null, 'public/uploads');
+    },
+    filename: (request, file, callback) => {
+        //aquí configuramos el nombre que queremos que tenga el archivo en el servidor, 
+        //para que no haya problema si se suben 2 archivos con el mismo nombre concatenamos el timestamp
+        callback(null, new Date().getMilliseconds + file.originalname);
+    },
+});
+
+//En el registro, pasamos la constante de configuración y
+//usamos single porque es un sólo archivo el que vamos a subir, 
+//pero hay diferentes opciones si se quieren subir varios archivos. 
+//'archivo' es el nombre del input tipo file de la forma
+app.use(multer({ storage: fileStorage }).single('archivo')); //registrar el middleware, como se sube un solo arhivo es con single
+//lo que esta dentro de sinbgle tiene que ser el mismo name= que el que esta en el input
+
 const csrf = require('csurf');
 const csrfProtection = csrf();
 app.use(csrfProtection); 
