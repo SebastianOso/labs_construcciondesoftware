@@ -1,0 +1,4 @@
+lab 24 hecho en pair programming con Omar Emilio
+
+link del commits:
+https://github.com/Elmay05/Construccion-de-software/commit/7814eedd0c0f72db63e34746f340e56b85b4269a
