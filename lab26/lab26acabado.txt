@@ -1,0 +1,3 @@
+lab 26 acabado
+
+se usa la api de nodemailer
