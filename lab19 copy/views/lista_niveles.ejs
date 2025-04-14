@@ -1,0 +1,25 @@
+<%- include('includes/_header.ejs') %>
+
+<% if(info != '') { %>
+    <div class="notification is-info">
+        <%= info %>
+    </div>
+<% } %>
+
+<div class="columns">
+<% for (let nivel of niveles) { %>
+    <div class="column">
+        <div class="card">
+            <div class="card-content">
+                <p class="title">
+                    <a><%= nivel.nombre %></a>
+                </p>
+            </div>
+        </div>
+    </div>
+<% } %>
+</div>
+
+<br><br>
+
+<%- include('includes/_footer.ejs') %>

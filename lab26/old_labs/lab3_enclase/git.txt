@@ -1,0 +1,5 @@
+//agregar cambios a una transaccion
+git add -a
+
+//para cambiarse de rama
+git checkout [nombre_rama]
