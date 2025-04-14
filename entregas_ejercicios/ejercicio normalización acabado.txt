@@ -1,0 +1,16 @@
+ejercicio normalización acabado
+
+3FN
+
+Parte(Código, Descripción)
+Operador(NoOperador, NombreOperador)
+Turno(NoTurno)
+Linea(NoLinea)
+Producción(Código_parte, Fecha, NoOperador,Cantidad,NoLinea,NoTurno)
+
+
+Cliente(NoTelefono, Nombre, IdCiudad, IdEstado)
+Ciudad(IdCiudad, Ciudad)
+Estado(IdEstado,Estado)
+Costo(IdCiudadOrigen, IdCiudadDestino,  Tarifa) 
+Facturación(IdCiudadOrigen, IdCiudadDestino, NumeroOrigen, NumeroDestino, Monto, Fecha_Inicio, Fecha_Fin)
